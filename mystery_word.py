@@ -30,18 +30,18 @@ def play_game():
 
 
 # tracks action for one round
-def round(game):
-    print(''.join(game['letters']))
-    print(''.join(game['board_letters']))
+def round(game_info):
+    print(''.join(game_info['letters']))
+    print(''.join(game_info['board_letters']))
     letter_guess = input(
         'Guess a letter: ')
-    if (letter_guess in game['letters']):
-        for i in range(0, len(game['letters'])):
-            if game['letters'][i] == letter_guess:
-                game['board_letters'][i*2] = letter_guess
+    if (letter_guess in game_info['letters']):
+        for i in range(0, len(game_info['letters'])):
+            if game_info['letters'][i] == letter_guess:
+                game_info['board_letters'][i*2] = letter_guess
     else:
-        game['guess_left'] -= 1
-    print(f'Guesses remaining: {game["guess_left"]}')
+        game_info['guess_left'] -= 1
+    print(f'Guesses remaining: {game_info["guess_left"]}')
 
 
 if __name__ == "__main__":
