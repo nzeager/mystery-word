@@ -41,10 +41,17 @@ def play_game():
         print(
             f'Congratulations! You got the word "{word}" Thank you for playing.')
 
+    # Asks if user wants to play again
+    print('')
+    play = input('Do you want to play again? (y/n) ').lower()
+    if (play == 'y'):
+        print('')
+        play_game()
+
 
 def round(game_info):
-    # uncomment below line to see word in game
-    # print(''.join(game_info['letters']))
+    # uncomment below line to see word in game (for testing)
+    print(''.join(game_info['letters']))
 
     # Display game board and ask for guess
     print(''.join(game_info['board_letters']))
