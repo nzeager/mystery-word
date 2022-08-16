@@ -27,10 +27,12 @@ def play_game():
     }
 
     # runs game
-    # tracks action for one round
     print(f'Welcome to Mystery Word! Your word has {length} letters.')
+
+    # runs rounds until you guess the word or run out of guesses
     while (game['guess_left'] > 0 and '_' in game['board_letters']):
         round(game)
+
     # Messages for success/failure (reveal word)
     if (game['guess_left'] == 0):
         print(
@@ -41,12 +43,14 @@ def play_game():
 
 
 def round(game_info):
-    # REMOVE: below line when done
-    print(''.join(game_info['letters']))
+    # uncomment below line to see word in game
+    # print(''.join(game_info['letters']))
+
     # Display game board and ask for guess
     print(''.join(game_info['board_letters']))
     letter_guess = input(
         'Guess a letter: ').lower()
+
     # Don't penalize player if they repeat a guess.
     # For new guesses, append guess to list of letters
     # guessed so far and mark player right or wrong.
