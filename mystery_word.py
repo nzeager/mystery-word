@@ -1,5 +1,9 @@
 import random
 
+# ADD: After everything below add 'More features'
+# ADD: After 'More features' add 'Spicy Mode'
+# ADD: Don't penalize for invalid guesses
+
 
 def play_game():
     # pull in word
@@ -9,39 +13,61 @@ def play_game():
     # pick word, create list of letters
     word_list = contents.split()
     word = random.choice(word_list)
-    # letters = list(word)
 
     # create board and list of letters
     length = len(word)
     board = "_ "*length
-    # board_letters = list(board)
 
     # game dictionary
     game = {
         'guess_left': 8,
         'letters': list(word),
-        'board_letters': list(board)
+        'board_letters': list(board),
+        'letters_guessed': []
     }
 
-    # take guess
-    # update board
+    # runs game
+    # tracks action for one round
+    print(f'Welcome to Mystery Word! Your word has {length} letters.')
     while (game['guess_left'] > 0 and '_' in game['board_letters']):
         round(game)
+    # Messages for success/failure (reveal word)
+    if (game['guess_left'] == 0):
+        print(
+            f'You have run out of guesses. The correct word was "{word}". Thank you for playing.')
+    else:
+        print(
+            f'Congratulations! You got the word "{word}" Thank you for playing.')
 
 
-# tracks action for one round
 def round(game_info):
+    # REMOVE: below line when done
     print(''.join(game_info['letters']))
+    # Display game board and ask for guess
     print(''.join(game_info['board_letters']))
     letter_guess = input(
-        'Guess a letter: ')
-    if (letter_guess in game_info['letters']):
-        for i in range(0, len(game_info['letters'])):
-            if game_info['letters'][i] == letter_guess:
-                game_info['board_letters'][i*2] = letter_guess
+        'Guess a letter: ').lower()
+    # Don't penalize player if they repeat a guess.
+    # For new guesses, append guess to list of letters
+    # guessed so far and mark player right or wrong.
+    if (letter_guess in game_info['letters_guessed']):
+        print('You have already guessed this letter.')
     else:
-        game_info['guess_left'] -= 1
+        game_info['letters_guessed'].append(letter_guess)
+        if (letter_guess in game_info['letters']):
+            for i in range(0, len(game_info['letters'])):
+                if game_info['letters'][i] == letter_guess:
+                    game_info['board_letters'][i*2] = letter_guess
+            print('Good guess!')
+        else:
+            game_info['guess_left'] -= 1
+            print('Guess again.')
+
+    # Tell player how many guesses are left and
+    # what letters they've guessed so far
     print(f'Guesses remaining: {game_info["guess_left"]}')
+    print(f'Letters guessed so far: {", ".join(game_info["letters_guessed"])}')
+    print('')
 
 
 if __name__ == "__main__":
