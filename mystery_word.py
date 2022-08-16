@@ -1,8 +1,8 @@
 import random
 
-# ADD: After everything below add 'More features'
-# ADD: After 'More features' add 'Spicy Mode'
-# ADD: Don't penalize for invalid guesses
+# ADD: Let user choose difficulty based on word length
+# ADD: Use pipenv to install the colorama package to add colors
+# ADD: If you want to get really fancy, check out asciimatics!
 
 
 def play_game():
@@ -33,13 +33,15 @@ def play_game():
     while (game['guess_left'] > 0 and '_' in game['board_letters']):
         round(game)
 
-    # Messages for success/failure (reveal word)
+    # Messages for success/failure
     if (game['guess_left'] == 0):
         print(
-            f'You have run out of guesses. The correct word was "{word}". Thank you for playing.')
+            f'You have run out of guesses. The correct word was "{word}". \
+Thank you for playing.')
     else:
         print(
-            f'Congratulations! You got the word "{word}" Thank you for playing.')
+            f'Congratulations! You got the word "{word}" \
+Thank you for playing.')
 
     # Asks if user wants to play again
     print('')
