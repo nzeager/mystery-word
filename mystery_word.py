@@ -53,7 +53,7 @@ Thank you for playing.')
 
 def round(game_info):
     # uncomment below line to see word in game (for testing)
-    print(''.join(game_info['letters']))
+    # print(''.join(game_info['letters']))
 
     # Display game board and ask for guess
     print(''.join(game_info['board_letters']))
