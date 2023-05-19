@@ -1,5 +1,22 @@
 # Mystery Word
 
+## Momentum Boot Camp Project 1
+
+Skills:
+
+- accepting user input
+- tracking user's remaining guesses
+- tracking how much of the word has been revealed so far
+- responding to user differently depending whether they've guessed a letter in the word or not
+- not penalizing the user if they guess the same letter multiple times
+- not allowing guesses with more than 1 letter
+
+Additional features I added:
+
+- using a recursive function if the user wants to play again
+
+## Below are Project Directions
+
 ## Objectives
 
 After completing this assignment, you should be able to:
