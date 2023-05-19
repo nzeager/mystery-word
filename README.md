@@ -1,6 +1,6 @@
 # Mystery Word
 
-## Momentum Boot Camp Project 1
+## Momentum Boot Camp Project 8
 
 Skills:
 
